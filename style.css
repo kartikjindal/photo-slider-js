@@ -1,0 +1,144 @@
+  /* #maincontent
+  {
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    left: 50%;
+    top: 50%;
+    border-color: red;
+    border: black 2rem solid;
+  } 
+  img{
+    width: 70%;
+    height: 70%;
+    fill: firebrick;
+
+    border: black 2rem solid;
+  }
+  
+  #leftpane {
+    float: left;
+    width: 50%;
+    border: 3px;
+    padding: 10px;
+    padding: auto;
+    border-color: red;
+    border: blue 2rem solid;
+  }
+  #rightpane {
+    float: right;
+    width: 50%;
+    border: 3px;
+    padding: 10px;
+    border: green 2rem solid;
+
+    /* border-color: red; */
+  /* border: 2rem; */
+  /* }
+  .options{
+    border: 2px solid black;
+  } */
+  /*  */
+  /* .my-container-class{
+    padding: 2rem;
+   } */
+
+  * {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  #maincontent {
+      display: flex;
+      width: 60rem;
+      /* Set the width of the div */
+      height: 35rem;
+      /* Set the height of the div */
+      position: fixed;
+      top: 50%;
+      /* Position the div 50% from the top */
+      left: 50%;
+      /* Position the div 50% from the left */
+      transform: translate(-50%, -50%);
+      /* Center align the div */
+  }
+
+  .space {
+      width: 3rem;
+  }
+
+  #rightpane,
+  #leftpane {
+      flex: 1;
+    width: 5rem;
+  }
+
+
+  li {
+      padding: 0.5rem;
+  }
+
+  ul {
+        margin-top: 10%;
+      margin-bottom: 43%;
+  }
+
+  img,
+  .imgframe {
+      height: 2.5rem;
+      width: 2.5rem;
+  }
+
+  .mainpic {
+      border-radius: 5px;
+      height: 33rem;
+      width: 25rem;
+  }
+
+  h1 {
+      margin-left: 40%;
+      margin-top: 2%;
+      font-weight: bolder;
+  }
+
+  button {
+      border: none;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      background-color: lightgrey;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+  }
+
+  li {
+      border: none;
+      border-radius: 4px;
+      /* background-color: lightgrey; */
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+      list-style-type: none;
+  }
+
+  li.active,
+  button.active {
+      background-color: #189ce8;
+
+  }
+
+  .clicked {
+      color: white;
+  }
+
+  .w3-center {
+      margin-left: 25%;
+  }
+  .imgname{
+    text-align: center;
+  }
