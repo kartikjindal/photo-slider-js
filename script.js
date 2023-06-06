@@ -44,7 +44,6 @@ function createListElement(n) {
         const text = document.createTextNode(d.title);
         const container = document.createElement("div");
         container.appendChild(image);
-        // text.classList.add("optiontext");
         container.appendChild(text);
         li.appendChild(container);
         optionstab.appendChild(li);
