@@ -30,39 +30,46 @@ function seq(m, n, siz, x) {
 }
 
 function createListElement(n) {
-    let optionstab = document.getElementById('optionsdiv'); // Accessing the first element in the collection
+    let optionstab = document.getElementById('optionsdiv');
     optionstab.innerHTML = "";
     for (let i = 0; i < m; i++) {
         let li = document.createElement("li");
         let d = data[seq(m, n, siz, i)];
         const image = document.createElement("img");
         image.src = d.previewImage;
-        const text = document.createTextNode(d.title);
-        // text.style.marginLeft = '30%';
-        const container = document.createElement("div");
-        container.appendChild(image);
-        container.appendChild(text);
-        li.appendChild(container);
+        const text = document.createElement("span");
+        text.innerText=d.title;
+        // const p=document.createElement
+        li.appendChild(image);
+        li.appendChild(text);
+        // text{
+        //     padding=3rem;
+        // }
         optionstab.appendChild(li);
     }
-    let allLi = document.getElementsByTagName('li');
     addingDesignToOptions();
     liClick(0, n);
 }
 
 let optionclicked = 0, buttonclicked = 0;
-createListElement(1);
-liClick(0, 1);
-linktobuttons();
-getittoggled(0);
+
+// getittoggled(0);
+
+function getittoggled(i) {
+    let item = document.getElementsByTagName('li');
+    item[i].classList.add('active');
+    item[i].classList.add('clicked');
+}
+
 function liClick(i, n) {
     optionclicked = i;
     let d = data[seq(m, n, siz, i)];
     let img = document.getElementsByClassName('mainpic')
     img[0].src = d.previewImage;
-
+    // console.log("I am clicked");
     let imgname = document.getElementById('imgname')
     imgname.innerText = d.title;
+    // imgname.style.padding=30px
     getittoggled(i);
 }
 
@@ -72,6 +79,7 @@ function addingDesignToOptions() {
     for (let i = 0; i < optionslist.length; i++) {
         const button = optionslist[i];
         button.addEventListener('click', () => {
+            liClick(i,n);
             for (let j = 0; j < optionslist.length; j++) {
                 const btn = optionslist[j];
                 if (btn !== button) {
@@ -86,26 +94,14 @@ function addingDesignToOptions() {
     }
 }
 
-
-function linktobuttons() {
-    let li = document.getElementsByTagName('li');
-    for (let i = 0; i < m; i++) {
-        li[i].addEventListener('click', function () { liClick(i, n) });
-    }
-    // liClick(0,n);
-}
-
 function newpage(txt, i) {
     n = txt;
     buttonclicked = i;
-    console.log(i);
     createListElement(n);
-    linktobuttons();
 }
 
 let belowbuttons = document.getElementsByClassName("w3-button demo");
 for (let i = 0; i < 3; i++) {
-    console.log(belowbuttons[i])
     belowbuttons[i].addEventListener('click', function () { newpage(belowbuttons[i].innerText, i) });
 }
 let counter = 1;
@@ -117,17 +113,30 @@ function displaybelowbuttons(counter) {
     }
     n = 3 * (counter) - 1;
     belowbuttons[0].click();
-    // liClick(1);
-    // liClick()
     createListElement(n);
 }
-function getittoggled(i) {
-    let item = document.getElementsByTagName('li');
-    item[i].classList.add('active');
-    item[i].classList.add('clicked');
-}
+
 // action to increase or decrease slider using arrows
 function plusDivs(i) {
+    // if(i==1 )
+    // {
+    //     if(buttonclicked<2)
+    //     {
+    //         buttonclicked++;
+
+    //     }
+    //     if(buttonclicked==2 && counter<5)
+    //     {
+    //         counter++;
+    //         displaybelowbuttons(counter);
+    //     }
+        
+    //     else 
+    //     {
+    //         createListElement(++n);
+    //         belowbuttons[buttonclicked].click();
+    //     }
+    // }
     if (i == 1 && counter < 5) {
         counter++;
     }
@@ -136,9 +145,7 @@ function plusDivs(i) {
     else if (counter > 1)
         counter--;
     displaybelowbuttons(counter);
-    // console.log(counter);
-    // createListElement(3 * (counter - 1) +1);
-
+    
 }
 // keyboard actions
 
@@ -189,4 +196,6 @@ for (let i = 0; i < belowbuttons.length; i++) {
         console.log("Button clicked:", button.innerText);
     });
 }
+createListElement(1);
+// addingDesignToOptions();
 belowbuttons[0].click();
